@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/evmos/evmos/v9/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
 )
 
 type msgServer struct {

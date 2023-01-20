@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "github.com/evmos/evmos/v9/testutil/keeper"
-	"github.com/evmos/evmos/v9/x/reward/types"
+	testkeeper "github.com/cascadiafoundation/cascadia/v1/testutil/keeper"
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
 	"github.com/stretchr/testify/require"
 )
 

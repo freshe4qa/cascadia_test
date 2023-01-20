@@ -3,7 +3,7 @@ package evmos.v9.reward;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/evmos/v9/x/reward/types";
+option go_package = "github.com/cascadiafoundation/cascadia/v1/x/reward/types";
 
 message Reward {
   string index = 1; 

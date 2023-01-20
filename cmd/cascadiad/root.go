@@ -40,9 +40,9 @@ import (
 	servercfg "github.com/evmos/ethermint/server/config"
 	srvflags "github.com/evmos/ethermint/server/flags"
 
-	"github.com/evmos/evmos/v9/app"
-	cmdcfg "github.com/evmos/evmos/v9/cmd/config"
-	evmoskr "github.com/evmos/evmos/v9/crypto/keyring"
+	"github.com/cascadiafoundation/cascadia/v1/app"
+	cmdcfg "github.com/cascadiafoundation/cascadia/v1/cmd/config"
+	evmoskr "github.com/cascadiafoundation/cascadia/v1/crypto/keyring"
 )
 
 const (

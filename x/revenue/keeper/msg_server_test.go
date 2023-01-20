@@ -11,7 +11,7 @@ import (
 	"github.com/evmos/ethermint/tests"
 	"github.com/evmos/ethermint/x/evm/statedb"
 
-	"github.com/evmos/evmos/v9/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
 )
 
 func (suite *KeeperTestSuite) TestRegisterRevenue() {

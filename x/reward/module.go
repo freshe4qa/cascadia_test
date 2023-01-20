@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/client/cli"
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/keeper"
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/evmos/evmos/v9/x/reward/client/cli"
-	"github.com/evmos/evmos/v9/x/reward/keeper"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 var (

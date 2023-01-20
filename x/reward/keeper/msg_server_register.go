@@ -5,9 +5,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 const ADMIN = "cascadia15e42sv6wm7ds69yy33h55pxr9wjxtzgnf06yxs"

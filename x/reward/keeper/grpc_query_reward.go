@@ -3,10 +3,10 @@ package keeper
 import (
 	"context"
 
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/evmos/evmos/v9/x/reward/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

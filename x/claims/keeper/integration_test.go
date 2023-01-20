@@ -13,6 +13,10 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
+	"github.com/cascadiafoundation/cascadia/v1/app"
+	"github.com/cascadiafoundation/cascadia/v1/testutil"
+	incentivestypes "github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	inflationtypes "github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
@@ -23,17 +27,13 @@ import (
 	"github.com/evmos/ethermint/encoding"
 	"github.com/evmos/ethermint/tests"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
-	"github.com/evmos/evmos/v9/app"
-	"github.com/evmos/evmos/v9/testutil"
-	incentivestypes "github.com/evmos/evmos/v9/x/incentives/types"
-	inflationtypes "github.com/evmos/evmos/v9/x/inflation/types"
 
+	"github.com/cascadiafoundation/cascadia/v1/contracts"
+	"github.com/cascadiafoundation/cascadia/v1/x/claims/types"
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	"github.com/evmos/ethermint/server/config"
 	evm "github.com/evmos/ethermint/x/evm/types"
-	"github.com/evmos/evmos/v9/contracts"
-	"github.com/evmos/evmos/v9/x/claims/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 

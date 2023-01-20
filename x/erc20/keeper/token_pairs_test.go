@@ -7,7 +7,7 @@ import (
 	"github.com/evmos/ethermint/tests"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/evmos/evmos/v9/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestGetTokenPairs() {

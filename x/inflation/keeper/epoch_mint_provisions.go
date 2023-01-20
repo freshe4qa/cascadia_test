@@ -3,8 +3,8 @@ package keeper
 import (
 	"fmt"
 
+	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v9/x/inflation/types"
 )
 
 // GetEpochMintProvision gets the current EpochMintProvision

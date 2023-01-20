@@ -12,9 +12,9 @@ import (
 	"github.com/evmos/ethermint/tests"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/evmos/evmos/v9/x/erc20/keeper"
-	"github.com/evmos/evmos/v9/x/erc20/types"
-	inflationtypes "github.com/evmos/evmos/v9/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/v1/x/erc20/keeper"
+	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+	inflationtypes "github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
 )
 
 const (

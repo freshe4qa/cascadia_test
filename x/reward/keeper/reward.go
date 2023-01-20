@@ -1,9 +1,9 @@
 package keeper
 
 import (
+	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 // SetReward set a specific reward in the store from its index

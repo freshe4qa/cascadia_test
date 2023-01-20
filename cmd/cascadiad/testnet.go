@@ -43,9 +43,9 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	cmdcfg "github.com/evmos/evmos/v9/cmd/config"
-	evmoskr "github.com/evmos/evmos/v9/crypto/keyring"
-	"github.com/evmos/evmos/v9/testutil/network"
+	cmdcfg "github.com/cascadiafoundation/cascadia/v1/cmd/config"
+	evmoskr "github.com/cascadiafoundation/cascadia/v1/crypto/keyring"
+	"github.com/cascadiafoundation/cascadia/v1/testutil/network"
 )
 
 var (

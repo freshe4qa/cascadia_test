@@ -6,7 +6,7 @@ import "reward/params.proto";
 import "reward/reward.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
-option go_package = "github.com/evmos/evmos/v9/x/reward/types";
+option go_package = "github.com/cascadiafoundation/cascadia/v1/x/reward/types";
 
 // GenesisState defines the reward module's genesis state.
 message GenesisState {

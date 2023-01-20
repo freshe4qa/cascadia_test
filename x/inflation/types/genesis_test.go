@@ -3,7 +3,7 @@ package types
 import (
 	"testing"
 
-	epochstypes "github.com/evmos/evmos/v9/x/epochs/types"
+	epochstypes "github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
 	"github.com/stretchr/testify/suite"
 )
 

@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"fmt"
 
+	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v9/x/revenue/types"
 )
 
 func (suite *KeeperTestSuite) TestGetFees() {
