@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/claims/types"
 )
 
 // RegisterInvariants registers the claims module invariants

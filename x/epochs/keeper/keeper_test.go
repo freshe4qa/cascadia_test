@@ -19,8 +19,8 @@ import (
 
 	evm "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	"github.com/cascadiafoundation/cascadia/x/epochs/types"
 )
 
 var denomMint = evm.DefaultEVMDenom

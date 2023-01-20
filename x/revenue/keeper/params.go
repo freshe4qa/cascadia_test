@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/x/revenue/types"
 )
 
 // GetParams returns the total set of fees parameters.

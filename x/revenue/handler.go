@@ -4,7 +4,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/x/revenue/types"
 )
 
 // NewHandler defines the fees module handler instance

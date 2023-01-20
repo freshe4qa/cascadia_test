@@ -19,8 +19,8 @@ import (
 	"github.com/evmos/ethermint/crypto/ethsecp256k1"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	v4 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v4"
+	"github.com/cascadiafoundation/cascadia/app"
+	v4 "github.com/cascadiafoundation/cascadia/app/upgrades/v4"
 )
 
 type UpgradeTestSuite struct {

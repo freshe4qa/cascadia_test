@@ -6,11 +6,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	v2 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v2"
-	v4 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v4"
-	v7 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v7"
-	v82 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v8_2"
-	"github.com/cascadiafoundation/cascadia/v1/types"
+	v2 "github.com/cascadiafoundation/cascadia/app/upgrades/v2"
+	v4 "github.com/cascadiafoundation/cascadia/app/upgrades/v4"
+	v7 "github.com/cascadiafoundation/cascadia/app/upgrades/v7"
+	v82 "github.com/cascadiafoundation/cascadia/app/upgrades/v8_2"
+	"github.com/cascadiafoundation/cascadia/types"
 )
 
 // ScheduleForkUpgrade executes any necessary fork logic for based upon the current

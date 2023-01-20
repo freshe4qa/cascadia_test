@@ -10,9 +10,9 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	"github.com/cascadiafoundation/cascadia/v1/testutil"
-	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	"github.com/cascadiafoundation/cascadia/testutil"
+	"github.com/cascadiafoundation/cascadia/x/revenue/types"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"

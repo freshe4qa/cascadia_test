@@ -14,9 +14,9 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	v5 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v5"
-	"github.com/cascadiafoundation/cascadia/v1/types"
-	claimskeeper "github.com/cascadiafoundation/cascadia/v1/x/claims/keeper"
+	v5 "github.com/cascadiafoundation/cascadia/app/upgrades/v5"
+	"github.com/cascadiafoundation/cascadia/types"
+	claimskeeper "github.com/cascadiafoundation/cascadia/x/claims/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v6

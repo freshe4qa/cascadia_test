@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	claimstypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	claimstypes "github.com/cascadiafoundation/cascadia/x/claims/types"
 	client "github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"

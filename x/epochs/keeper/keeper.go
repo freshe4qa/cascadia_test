@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/epochs/types"
 )
 
 // Keeper of this module maintains collections of epochs and hooks.

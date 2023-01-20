@@ -16,8 +16,8 @@ import (
 	"github.com/evmos/ethermint/encoding"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/cmd/config"
-	"github.com/cascadiafoundation/cascadia/v1/types"
+	"github.com/cascadiafoundation/cascadia/cmd/config"
+	"github.com/cascadiafoundation/cascadia/types"
 )
 
 func init() {

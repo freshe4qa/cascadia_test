@@ -21,11 +21,11 @@ import (
 
 	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	v5 "github.com/cascadiafoundation/cascadia/v1/app/upgrades/v5"
-	evmostypes "github.com/cascadiafoundation/cascadia/v1/types"
-	claimskeeper "github.com/cascadiafoundation/cascadia/v1/x/claims/keeper"
-	claimstypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	v5 "github.com/cascadiafoundation/cascadia/app/upgrades/v5"
+	evmostypes "github.com/cascadiafoundation/cascadia/types"
+	claimskeeper "github.com/cascadiafoundation/cascadia/x/claims/keeper"
+	claimstypes "github.com/cascadiafoundation/cascadia/x/claims/types"
 )
 
 type UpgradeTestSuite struct {

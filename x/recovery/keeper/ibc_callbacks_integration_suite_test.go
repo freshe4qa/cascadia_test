@@ -15,12 +15,12 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
 
-	ibctesting "github.com/cascadiafoundation/cascadia/v1/ibc/testing"
+	ibctesting "github.com/cascadiafoundation/cascadia/ibc/testing"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	claimtypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
-	inflationtypes "github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	claimtypes "github.com/cascadiafoundation/cascadia/x/claims/types"
+	inflationtypes "github.com/cascadiafoundation/cascadia/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 )
 

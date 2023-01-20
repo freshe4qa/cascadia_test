@@ -3,7 +3,7 @@ package cli
 import (
 	"context"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"

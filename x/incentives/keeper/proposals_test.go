@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/x/incentives/types"
 	"github.com/evmos/ethermint/tests"
 )
 

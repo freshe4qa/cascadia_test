@@ -3,8 +3,8 @@ package client
 import (
 	govclient "github.com/cosmos/cosmos-sdk/x/gov/client"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/client/cli"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/client/rest"
+	"github.com/cascadiafoundation/cascadia/x/erc20/client/cli"
+	"github.com/cascadiafoundation/cascadia/x/erc20/client/rest"
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/vesting/types"
+	"github.com/cascadiafoundation/cascadia/x/vesting/types"
 )
 
 // NewHandler defines the vesting module handler instance

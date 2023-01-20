@@ -16,9 +16,9 @@ import (
 	host "github.com/cosmos/ibc-go/v3/modules/core/24-host"
 	"github.com/cosmos/ibc-go/v3/modules/core/exported"
 
-	"github.com/cascadiafoundation/cascadia/v1/ibc"
-	evmos "github.com/cascadiafoundation/cascadia/v1/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/types"
+	"github.com/cascadiafoundation/cascadia/ibc"
+	evmos "github.com/cascadiafoundation/cascadia/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery/types"
 )
 
 // OnRecvPacket performs an IBC receive callback. It returns the tokens that

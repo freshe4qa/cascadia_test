@@ -7,8 +7,8 @@ import (
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	cmdcfg "github.com/cascadiafoundation/cascadia/v1/cmd/config"
+	"github.com/cascadiafoundation/cascadia/app"
+	cmdcfg "github.com/cascadiafoundation/cascadia/cmd/config"
 )
 
 func main() {

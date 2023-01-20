@@ -10,7 +10,7 @@ import (
 	// "github.com/cosmos/cosmos-sdk/client/flags"
 	// sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

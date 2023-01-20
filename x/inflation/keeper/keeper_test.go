@@ -19,9 +19,9 @@ import (
 
 	evm "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	epochstypes "github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 )
 
 var denomMint = types.DefaultInflationDenom

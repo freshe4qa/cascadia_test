@@ -1,6 +1,6 @@
 package keeper_test
 
-import "github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+import "github.com/cascadiafoundation/cascadia/x/erc20/types"
 
 func (suite *KeeperTestSuite) TestParams() {
 	params := suite.app.Erc20Keeper.GetParams(suite.ctx)

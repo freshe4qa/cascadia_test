@@ -17,9 +17,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/client/cli"
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/claims/client/cli"
+	"github.com/cascadiafoundation/cascadia/x/claims/keeper"
+	"github.com/cascadiafoundation/cascadia/x/claims/types"
 )
 
 var (

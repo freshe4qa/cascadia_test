@@ -20,9 +20,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/client/cli"
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/epochs/client/cli"
+	"github.com/cascadiafoundation/cascadia/x/epochs/keeper"
+	"github.com/cascadiafoundation/cascadia/x/epochs/types"
 )
 
 var (

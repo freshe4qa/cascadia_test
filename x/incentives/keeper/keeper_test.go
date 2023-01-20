@@ -36,10 +36,10 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evm "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	"github.com/cascadiafoundation/cascadia/v1/contracts"
-	epochstypes "github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	"github.com/cascadiafoundation/cascadia/contracts"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/incentives/types"
 )
 
 var (

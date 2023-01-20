@@ -8,7 +8,7 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/x/incentives/types"
 )
 
 // Keeper of this module maintains collections of incentives.

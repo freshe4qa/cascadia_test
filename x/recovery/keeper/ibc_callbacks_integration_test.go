@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"time"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	"github.com/cascadiafoundation/cascadia/v1/testutil"
-	claimtypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	"github.com/cascadiafoundation/cascadia/testutil"
+	claimtypes "github.com/cascadiafoundation/cascadia/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"

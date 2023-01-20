@@ -13,7 +13,7 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cascadiafoundation/cascadia/v1/types"
+	"github.com/cascadiafoundation/cascadia/types"
 	"github.com/evmos/ethermint/encoding"
 )
 

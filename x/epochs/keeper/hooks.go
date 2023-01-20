@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/epochs/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

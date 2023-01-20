@@ -3,7 +3,7 @@ package v9
 import (
 	"fmt"
 
-	"github.com/cascadiafoundation/cascadia/v1/types"
+	"github.com/cascadiafoundation/cascadia/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	distrKeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"

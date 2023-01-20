@@ -11,7 +11,7 @@ import (
 
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/x/revenue/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

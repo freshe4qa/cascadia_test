@@ -7,7 +7,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"github.com/evmos/ethermint/tests"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestTokenPairs() {

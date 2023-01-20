@@ -18,9 +18,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/client/cli"
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/x/incentives/client/cli"
+	"github.com/cascadiafoundation/cascadia/x/incentives/keeper"
+	"github.com/cascadiafoundation/cascadia/x/incentives/types"
 )
 
 // type check to ensure the interface is properly implemented

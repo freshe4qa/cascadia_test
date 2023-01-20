@@ -1,8 +1,8 @@
 package inflation
 
 import (
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/keeper"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs"
-	"github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/epochs"
+	"github.com/cascadiafoundation/cascadia/x/epochs/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochInfoChangesBeginBlockerAndInitGenesis() {

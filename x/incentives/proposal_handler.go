@@ -8,8 +8,8 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/x/incentives/keeper"
+	"github.com/cascadiafoundation/cascadia/x/incentives/types"
 )
 
 // NewIncentivesProposalHandler creates a governance handler to manage new

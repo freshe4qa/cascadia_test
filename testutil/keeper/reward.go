@@ -3,8 +3,8 @@ package keeper
 import (
 	"testing"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/x/reward/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/store"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"

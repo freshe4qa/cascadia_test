@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"fmt"
 
-	epochstypes "github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestSetGetEpochIdentifier() {

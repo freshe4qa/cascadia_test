@@ -3,8 +3,8 @@ package reward
 import (
 	"fmt"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/x/reward/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )

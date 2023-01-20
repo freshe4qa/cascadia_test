@@ -8,8 +8,8 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	epochstypes "github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
-	incentivestypes "github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
+	incentivestypes "github.com/cascadiafoundation/cascadia/x/incentives/types"
 )
 
 var (

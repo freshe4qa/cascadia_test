@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"fmt"
 
-	"github.com/cascadiafoundation/cascadia/v1/testutil"
+	"github.com/cascadiafoundation/cascadia/testutil"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
@@ -17,11 +17,11 @@ import (
 	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
 	ibcmock "github.com/cosmos/ibc-go/v3/testing/mock"
 
-	claimstypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
-	incentivestypes "github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/types"
-	vestingtypes "github.com/cascadiafoundation/cascadia/v1/x/vesting/types"
+	claimstypes "github.com/cascadiafoundation/cascadia/x/claims/types"
+	incentivestypes "github.com/cascadiafoundation/cascadia/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery/keeper"
+	"github.com/cascadiafoundation/cascadia/x/recovery/types"
+	vestingtypes "github.com/cascadiafoundation/cascadia/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestOnRecvPacket() {

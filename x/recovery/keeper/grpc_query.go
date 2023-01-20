@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery/types"
 )
 
 var _ types.QueryServer = Keeper{}

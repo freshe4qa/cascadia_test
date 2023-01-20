@@ -12,10 +12,10 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	ibctesting "github.com/cascadiafoundation/cascadia/v1/ibc/testing"
-	"github.com/cascadiafoundation/cascadia/v1/testutil"
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	ibctesting "github.com/cascadiafoundation/cascadia/ibc/testing"
+	"github.com/cascadiafoundation/cascadia/testutil"
+	"github.com/cascadiafoundation/cascadia/x/claims/types"
 	"github.com/evmos/ethermint/tests"
 )
 

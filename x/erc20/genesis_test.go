@@ -16,9 +16,9 @@ import (
 	"github.com/evmos/ethermint/tests"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	"github.com/cascadiafoundation/cascadia/x/erc20"
+	"github.com/cascadiafoundation/cascadia/x/erc20/types"
 )
 
 type GenesisTestSuite struct {

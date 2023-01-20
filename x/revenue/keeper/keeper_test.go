@@ -12,9 +12,9 @@ import (
 	"github.com/evmos/ethermint/tests"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	claimtypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	claimtypes "github.com/cascadiafoundation/cascadia/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/revenue/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	sdk "github.com/cosmos/cosmos-sdk/types"

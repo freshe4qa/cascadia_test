@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestParams() {

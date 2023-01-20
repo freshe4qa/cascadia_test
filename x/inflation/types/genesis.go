@@ -3,7 +3,7 @@ package types
 import (
 	fmt "fmt"
 
-	epochstypes "github.com/cascadiafoundation/cascadia/v1/x/epochs/types"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
 )
 
 // NewGenesisState creates a new GenesisState object

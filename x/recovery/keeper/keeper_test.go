@@ -17,9 +17,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	claimstypes "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/recovery/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	claimstypes "github.com/cascadiafoundation/cascadia/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery/types"
 )
 
 var (

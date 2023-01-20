@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/cascadiafoundation/cascadia/v1/app"
-	v2 "github.com/cascadiafoundation/cascadia/v1/x/claims/migrations/v2"
-	claims "github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	v2 "github.com/cascadiafoundation/cascadia/x/claims/migrations/v2"
+	claims "github.com/cascadiafoundation/cascadia/x/claims/types"
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"

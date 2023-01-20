@@ -8,9 +8,9 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/cascadiafoundation/cascadia/v1/contracts"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/contracts"
+	"github.com/cascadiafoundation/cascadia/x/erc20/keeper"
+	"github.com/cascadiafoundation/cascadia/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryERC20() {

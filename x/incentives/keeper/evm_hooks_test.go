@@ -14,9 +14,9 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evm "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/testutil"
-	"github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
-	vestingtypes "github.com/cascadiafoundation/cascadia/v1/x/vesting/types"
+	"github.com/cascadiafoundation/cascadia/testutil"
+	"github.com/cascadiafoundation/cascadia/x/incentives/types"
+	vestingtypes "github.com/cascadiafoundation/cascadia/x/vesting/types"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the

@@ -19,9 +19,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/client/cli"
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/client/cli"
+	"github.com/cascadiafoundation/cascadia/x/inflation/keeper"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 )
 
 // type check to ensure the interface is properly implemented

@@ -19,7 +19,7 @@ import (
 
 	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
 
-	evmosapp "github.com/cascadiafoundation/cascadia/v1/app"
+	evmosapp "github.com/cascadiafoundation/cascadia/app"
 	ethermint "github.com/evmos/ethermint/types"
 )
 

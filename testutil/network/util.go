@@ -16,7 +16,7 @@ import (
 	"github.com/tendermint/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	inflationtypes "github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	inflationtypes "github.com/cascadiafoundation/cascadia/x/inflation/types"
 	"github.com/cosmos/cosmos-sdk/server/api"
 	servergrpc "github.com/cosmos/cosmos-sdk/server/grpc"
 	srvtypes "github.com/cosmos/cosmos-sdk/server/types"

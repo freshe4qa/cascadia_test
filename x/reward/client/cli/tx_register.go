@@ -3,7 +3,7 @@ package cli
 import (
 	"strconv"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"

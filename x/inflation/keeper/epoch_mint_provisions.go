@@ -3,7 +3,7 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

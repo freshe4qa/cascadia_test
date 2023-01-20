@@ -1,6 +1,6 @@
 package keeper_test
 
-import "github.com/cascadiafoundation/cascadia/v1/x/incentives/types"
+import "github.com/cascadiafoundation/cascadia/x/incentives/types"
 
 func (suite *KeeperTestSuite) TestParams() {
 	params := suite.app.IncentivesKeeper.GetParams(suite.ctx)

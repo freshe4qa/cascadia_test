@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/keeper"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/x/erc20/keeper"
+	"github.com/cascadiafoundation/cascadia/x/erc20/types"
 )
 
 // InitGenesis import module genesis

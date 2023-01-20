@@ -8,8 +8,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/contracts"
-	"github.com/cascadiafoundation/cascadia/v1/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/contracts"
+	"github.com/cascadiafoundation/cascadia/x/erc20/types"
 	"github.com/evmos/ethermint/tests"
 )
 

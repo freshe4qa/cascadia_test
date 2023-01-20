@@ -7,9 +7,9 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/types"
-	claimskeeper "github.com/cascadiafoundation/cascadia/v1/x/claims/keeper"
-	inflationkeeper "github.com/cascadiafoundation/cascadia/v1/x/inflation/keeper"
+	"github.com/cascadiafoundation/cascadia/types"
+	claimskeeper "github.com/cascadiafoundation/cascadia/x/claims/keeper"
+	inflationkeeper "github.com/cascadiafoundation/cascadia/x/inflation/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v7

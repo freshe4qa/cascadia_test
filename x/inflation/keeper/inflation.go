@@ -5,8 +5,8 @@ import (
 
 	ethermint "github.com/evmos/ethermint/types"
 
-	evmos "github.com/cascadiafoundation/cascadia/v1/types"
-	"github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	evmos "github.com/cascadiafoundation/cascadia/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 )
 
 // 200M token at year 4 allocated to the team

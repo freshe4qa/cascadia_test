@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cascadiafoundation/cascadia/v1/testutil"
-	inflationtypes "github.com/cascadiafoundation/cascadia/v1/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/testutil"
+	inflationtypes "github.com/cascadiafoundation/cascadia/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
@@ -17,7 +17,7 @@ import (
 	"github.com/evmos/ethermint/tests"
 	ethermint "github.com/evmos/ethermint/types"
 
-	"github.com/cascadiafoundation/cascadia/v1/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {
