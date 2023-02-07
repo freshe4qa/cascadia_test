@@ -1,53 +1,24 @@
 package keeper
 
 import (
-	"context"
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/evmos/ethermint/x/evm/statedb"
 	"github.com/tendermint/tendermint/libs/log"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/cosmos/cosmos-sdk/x/gov/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
 )
-
-// EVMKeeper defines the expected EVM keeper interface used on erc20
-type EVMKeeper interface {
-	GetParams(ctx sdk.Context) evmtypes.Params
-	GetAccountWithoutBalance(ctx sdk.Context, addr common.Address) *statedb.Account
-	EstimateGas(c context.Context, req *evmtypes.EthCallRequest) (*evmtypes.EstimateGasResponse, error)
-	ApplyMessage(ctx sdk.Context, msg core.Message, tracer vm.EVMLogger, commit bool) (*evmtypes.MsgEthereumTxResponse, error)
-}
-
-// AccountKeeper defines the expected interface needed to retrieve account info.
-type AuthKeeper interface {
-	// GetModuleAddress(moduleName string) sdk.AccAddress
-	types.AccountKeeper
-	GetSequence(sdk.Context, sdk.AccAddress) (uint64, error)
-	SetAccount(sdk.Context, authtypes.AccountI)
-}
-
-var ModuleAddress common.Address
-
-func init() {
-	ModuleAddress = common.BytesToAddress(authtypes.NewModuleAddress(types.ModuleName).Bytes())
-}
 
 // Keeper defines the governance module Keeper
 type Keeper struct {
 	// The reference to the Paramstore to get and set gov specific params
 	paramSpace types.ParamSubspace
 
-	authKeeper AuthKeeper
+	authKeeper types.AccountKeeper
 	bankKeeper types.BankKeeper
-	evmKeeper  EVMKeeper
 
 	// The reference to the DelegationSet and ValidatorSet to get information about validators and delegators
 	sk types.StakingKeeper
@@ -74,7 +45,7 @@ type Keeper struct {
 // CONTRACT: the parameter Subspace must have the param key table already initialized
 func NewKeeper(
 	cdc codec.BinaryCodec, key sdk.StoreKey, paramSpace types.ParamSubspace,
-	authKeeper AuthKeeper, bankKeeper types.BankKeeper, sk types.StakingKeeper, rtr types.Router, evmKeeper EVMKeeper,
+	authKeeper types.AccountKeeper, bankKeeper types.BankKeeper, sk types.StakingKeeper, rtr types.Router,
 ) Keeper {
 	// ensure governance module account is set
 	if addr := authKeeper.GetModuleAddress(types.ModuleName); addr == nil {
@@ -91,10 +62,10 @@ func NewKeeper(
 		paramSpace: paramSpace,
 		authKeeper: authKeeper,
 		bankKeeper: bankKeeper,
-		evmKeeper:  evmKeeper,
-		sk:         sk,
-		cdc:        cdc,
-		router:     rtr,
+
+		sk:     sk,
+		cdc:    cdc,
+		router: rtr,
 	}
 }
 

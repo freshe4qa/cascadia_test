@@ -8,25 +8,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/ethereum/go-ethereum/common"
 )
 
 // EndBlocker called every block, process inflation, update validator set.
 func EndBlocker(ctx sdk.Context, keeper keeper.Keeper) {
 	defer telemetry.ModuleMeasureSince(types.ModuleName, time.Now(), telemetry.MetricKeyEndBlocker)
 
-	blockHeight := ctx.BlockHeight()
-
-	var contractAddress common.Address
-	var err error
-	// Deploy Voting Escrow contract to the chain
-	if blockHeight == 1 {
-		contractAddress, err = keeper.DeployVotingEscrowContract(ctx)
-
-		if err != nil {
-			panic(err)
-		}
-	}
 	logger := keeper.Logger(ctx)
 
 	// delete inactive proposal from store and its deposits
@@ -47,7 +34,6 @@ func EndBlocker(ctx sdk.Context, keeper keeper.Keeper) {
 
 		logger.Info(
 			"proposal did not meet minimum deposit; deleted",
-			"ve-contract", contractAddress,
 			"proposal", proposal.ProposalId,
 			"title", proposal.GetTitle(),
 			"min_deposit", keeper.GetDepositParams(ctx).MinDeposit.String(),

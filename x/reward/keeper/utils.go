@@ -2,11 +2,14 @@ package keeper
 
 import (
 	"encoding/json"
+	"fmt"
 	"math/big"
 
 	"github.com/cascadiafoundation/cascadia/contracts"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
@@ -45,7 +48,7 @@ func (k Keeper) CallEVMWithData(
 	data []byte,
 	commit bool,
 ) (*evmtypes.MsgEthereumTxResponse, error) {
-	nonce, err := k.authKeeper.GetSequence(ctx, from.Bytes())
+	nonce, err := k.accountKeeper.GetSequence(ctx, from.Bytes())
 	if err != nil {
 		return nil, err
 	}
@@ -117,8 +120,12 @@ func (k Keeper) DeployVotingEscrowContract(
 	copy(data[:len(contracts.VotingEscrowContract.Bin)], contracts.VotingEscrowContract.Bin)
 	copy(data[len(contracts.VotingEscrowContract.Bin):], ctorArgs)
 
-	nonce, err := k.authKeeper.GetSequence(ctx, ModuleAddress.Bytes())
+	fmt.Println("module address: ", ModuleAddress)
 
+	account := k.accountKeeper.NewAccountWithAddress(ctx, authtypes.NewModuleAddress(types.ModuleName))
+	k.accountKeeper.SetAccount(ctx, account)
+
+	nonce, err := k.accountKeeper.GetSequence(ctx, ModuleAddress.Bytes())
 	if err != nil {
 		return common.Address{}, err
 	}
@@ -135,25 +142,25 @@ func (k Keeper) DeployVotingEscrowContract(
 }
 
 // BalanceOf queries an account's balance for a given ERC20 contract
-// func (k Keeper) BalanceOf(
-// 	ctx sdk.Context,
-// 	abi abi.ABI,
-// 	contract, account common.Address,
-// ) *big.Int {
-// 	res, err := k.CallEVM(ctx, abi, ModuleAddress, contract, false, "balanceOf", account)
-// 	if err != nil {
-// 		return nil
-// 	}
+func (k Keeper) BalanceOf(
+	ctx sdk.Context,
+	abi abi.ABI,
+	contract, account common.Address,
+) *big.Int {
+	res, err := k.CallEVM(ctx, abi, ModuleAddress, contract, false, "balanceOf", account)
+	if err != nil {
+		return nil
+	}
 
-// 	unpacked, err := abi.Unpack("balanceOf", res.Ret)
-// 	if err != nil || len(unpacked) == 0 {
-// 		return nil
-// 	}
+	unpacked, err := abi.Unpack("balanceOf", res.Ret)
+	if err != nil || len(unpacked) == 0 {
+		return nil
+	}
 
-// 	balance, ok := unpacked[0].(*big.Int)
-// 	if !ok {
-// 		return nil
-// 	}
+	balance, ok := unpacked[0].(*big.Int)
+	if !ok {
+		return nil
+	}
 
-// 	return balance
-// }
+	return balance
+}

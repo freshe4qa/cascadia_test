@@ -438,7 +438,7 @@ func NewEvmos(
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
-		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter, app.EvmKeeper,
+		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter,
 	)
 
 	app.rewardKeeper = *rewardmodulekeeper.NewKeeper(
@@ -449,6 +449,7 @@ func NewEvmos(
 
 		app.BankKeeper,
 		app.EvmKeeper,
+		app.AccountKeeper,
 		authtypes.FeeCollectorName,
 	)
 	// Evmos Keeper
