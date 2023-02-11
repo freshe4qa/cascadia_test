@@ -19,7 +19,7 @@ func EndBlocker(ctx sdk.Context, keeper keeper.Keeper) {
 	// delete inactive proposal from store and its deposits
 	keeper.IterateInactiveProposalsQueue(ctx, ctx.BlockHeader().Time, func(proposal types.Proposal) bool {
 		keeper.DeleteProposal(ctx, proposal.ProposalId)
-		keeper.DeleteDeposits(ctx, proposal.ProposalId)
+		// keeper.DeleteDeposits(ctx, proposal.ProposalId)
 
 		// called when proposal become inactive
 		keeper.AfterProposalFailedMinDeposit(ctx, proposal.ProposalId)
@@ -47,13 +47,13 @@ func EndBlocker(ctx sdk.Context, keeper keeper.Keeper) {
 	keeper.IterateActiveProposalsQueue(ctx, ctx.BlockHeader().Time, func(proposal types.Proposal) bool {
 		var tagValue, logMsg string
 
-		passes, burnDeposits, tallyResults := keeper.Tally(ctx, proposal)
+		passes, _, tallyResults := keeper.Tally(ctx, proposal)
 
-		if burnDeposits {
-			keeper.DeleteDeposits(ctx, proposal.ProposalId)
-		} else {
-			keeper.RefundDeposits(ctx, proposal.ProposalId)
-		}
+		// if burnDeposits {
+		// 	keeper.DeleteDeposits(ctx, proposal.ProposalId)
+		// } else {
+		// 	keeper.RefundDeposits(ctx, proposal.ProposalId)
+		// }
 
 		if passes {
 			handler := keeper.Router().GetRoute(proposal.ProposalRoute())

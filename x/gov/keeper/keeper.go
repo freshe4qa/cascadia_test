@@ -2,15 +2,25 @@ package keeper
 
 import (
 	"fmt"
+	"math/big"
 	"time"
 
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/tendermint/tendermint/libs/log"
 
+	rewardtypes "github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/cosmos/cosmos-sdk/x/gov/types"
 )
+
+type RewardKeeper interface {
+	BalanceOf(ctx sdk.Context, abi abi.ABI, contract, account common.Address, time *big.Int) *big.Int
+	GetReward(ctx sdk.Context, index string) (val rewardtypes.Reward, found bool)
+	TotalSupply(ctx sdk.Context, abi abi.ABI, contract common.Address, time *big.Int) *big.Int
+}
 
 // Keeper defines the governance module Keeper
 type Keeper struct {
@@ -34,6 +44,8 @@ type Keeper struct {
 
 	// Proposal router
 	router types.Router
+
+	rk RewardKeeper
 }
 
 // NewKeeper returns a governance keeper. It handles:
@@ -45,7 +57,7 @@ type Keeper struct {
 // CONTRACT: the parameter Subspace must have the param key table already initialized
 func NewKeeper(
 	cdc codec.BinaryCodec, key sdk.StoreKey, paramSpace types.ParamSubspace,
-	authKeeper types.AccountKeeper, bankKeeper types.BankKeeper, sk types.StakingKeeper, rtr types.Router,
+	authKeeper types.AccountKeeper, bankKeeper types.BankKeeper, sk types.StakingKeeper, rtr types.Router, rk RewardKeeper,
 ) Keeper {
 	// ensure governance module account is set
 	if addr := authKeeper.GetModuleAddress(types.ModuleName); addr == nil {
@@ -66,6 +78,7 @@ func NewKeeper(
 		sk:     sk,
 		cdc:    cdc,
 		router: rtr,
+		rk:     rk,
 	}
 }
 

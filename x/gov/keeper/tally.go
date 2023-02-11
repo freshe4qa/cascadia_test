@@ -1,9 +1,12 @@
 package keeper
 
 import (
+	"math/big"
+
+	"github.com/cascadiafoundation/cascadia/contracts"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/gov/types"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // TODO: Break into several smaller functions for clarity
@@ -12,91 +15,53 @@ import (
 // voters
 func (keeper Keeper) Tally(ctx sdk.Context, proposal types.Proposal) (passes bool, burnDeposits bool, tallyResults types.TallyResult) {
 	results := make(map[types.VoteOption]sdk.Dec)
+	totalVotingPower := sdk.ZeroDec()
 	results[types.OptionYes] = sdk.ZeroDec()
 	results[types.OptionAbstain] = sdk.ZeroDec()
 	results[types.OptionNo] = sdk.ZeroDec()
 	results[types.OptionNoWithVeto] = sdk.ZeroDec()
 
-	totalVotingPower := sdk.ZeroDec()
-	currValidators := make(map[string]types.ValidatorGovInfo)
+	// Get the vote-escrowed contract
+	contract, found := keeper.rk.GetReward(ctx, "vecontract")
+	if !found {
+		panic("no ve contract")
+	}
+	contractEvmAddr := common.HexToAddress(contract.Contract)
 
-	// fetch all the bonded validators, insert them into currValidators
-	keeper.sk.IterateBondedValidatorsByPower(ctx, func(index int64, validator stakingtypes.ValidatorI) (stop bool) {
-		currValidators[validator.GetOperator().String()] = types.NewValidatorGovInfo(
-			validator.GetOperator(),
-			validator.GetBondedTokens(),
-			validator.GetDelegatorShares(),
-			sdk.ZeroDec(),
-			types.WeightedVoteOptions{},
-		)
+	// Get the time of submission of proposal
+	submitTime := big.NewInt(proposal.SubmitTime.Unix())
 
-		return false
-	})
+	// Get the total voting power
+	totalBalance := sdk.NewDecFromBigInt(keeper.rk.TotalSupply(ctx, contracts.VotingEscrowContract.ABI, contractEvmAddr, submitTime))
 
 	keeper.IterateVotes(ctx, proposal.ProposalId, func(vote types.Vote) bool {
 		// if validator, just record it in the map
 		voter := sdk.MustAccAddressFromBech32(vote.Voter)
+		voterEvmAddr := common.BytesToAddress(voter.Bytes())
+		voterBalance := sdk.NewDecFromBigInt(keeper.rk.BalanceOf(ctx, contracts.VotingEscrowContract.ABI, contractEvmAddr, voterEvmAddr, submitTime))
 
-		valAddrStr := sdk.ValAddress(voter.Bytes()).String()
-		if val, ok := currValidators[valAddrStr]; ok {
-			val.Vote = vote.Options
-			currValidators[valAddrStr] = val
+		for _, option := range vote.Options {
+
+			results[option.Option] = results[option.Option].Add(voterBalance)
 		}
 
-		// iterate over all delegations from voter, deduct from any delegated-to validators
-		keeper.sk.IterateDelegations(ctx, voter, func(index int64, delegation stakingtypes.DelegationI) (stop bool) {
-			valAddrStr := delegation.GetValidatorAddr().String()
-
-			if val, ok := currValidators[valAddrStr]; ok {
-				// There is no need to handle the special case that validator address equal to voter address.
-				// Because voter's voting power will tally again even if there will deduct voter's voting power from validator.
-				val.DelegatorDeductions = val.DelegatorDeductions.Add(delegation.GetShares())
-				currValidators[valAddrStr] = val
-
-				// delegation shares * bonded / total shares
-				votingPower := delegation.GetShares().MulInt(val.BondedTokens).Quo(val.DelegatorShares)
-
-				for _, option := range vote.Options {
-					subPower := votingPower.Mul(option.Weight)
-					results[option.Option] = results[option.Option].Add(subPower)
-				}
-				totalVotingPower = totalVotingPower.Add(votingPower)
-			}
-
-			return false
-		})
+		totalVotingPower.Add(voterBalance)
 
 		keeper.deleteVote(ctx, vote.ProposalId, voter)
 		return false
 	})
-
-	// iterate over the validators again to tally their voting power
-	for _, val := range currValidators {
-		if len(val.Vote) == 0 {
-			continue
-		}
-
-		sharesAfterDeductions := val.DelegatorShares.Sub(val.DelegatorDeductions)
-		votingPower := sharesAfterDeductions.MulInt(val.BondedTokens).Quo(val.DelegatorShares)
-
-		for _, option := range val.Vote {
-			subPower := votingPower.Mul(option.Weight)
-			results[option.Option] = results[option.Option].Add(subPower)
-		}
-		totalVotingPower = totalVotingPower.Add(votingPower)
-	}
 
 	tallyParams := keeper.GetTallyParams(ctx)
 	tallyResults = types.NewTallyResultFromMap(results)
 
 	// TODO: Upgrade the spec to cover all of these cases & remove pseudocode.
 	// If there is no staked coins, the proposal fails
-	if keeper.sk.TotalBondedTokens(ctx).IsZero() {
+	if totalBalance.IsZero() {
 		return false, false, tallyResults
 	}
 
 	// If there is not enough quorum of votes, the proposal fails
-	percentVoting := totalVotingPower.Quo(keeper.sk.TotalBondedTokens(ctx).ToDec())
+	percentVoting := totalVotingPower.Quo(totalBalance)
 	if percentVoting.LT(tallyParams.Quorum) {
 		return false, true, tallyResults
 	}

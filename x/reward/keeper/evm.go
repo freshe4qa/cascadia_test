@@ -2,7 +2,6 @@ package keeper
 
 import (
 	"encoding/json"
-	"fmt"
 	"math/big"
 
 	"github.com/cascadiafoundation/cascadia/contracts"
@@ -34,6 +33,7 @@ func (k Keeper) CallEVM(
 	}
 
 	resp, err := k.CallEVMWithData(ctx, from, &contract, data, commit)
+
 	if err != nil {
 		return nil, sdkerrors.Wrapf(err, "contract call failed: method '%s', contract '%s'", method, contract)
 	}
@@ -91,6 +91,7 @@ func (k Keeper) CallEVMWithData(
 	)
 
 	res, err := k.evmKeeper.ApplyMessage(ctx, msg, evmtypes.NewNoOpTracer(), commit)
+
 	if err != nil {
 		return nil, err
 	}
@@ -120,8 +121,6 @@ func (k Keeper) DeployVotingEscrowContract(
 	copy(data[:len(contracts.VotingEscrowContract.Bin)], contracts.VotingEscrowContract.Bin)
 	copy(data[len(contracts.VotingEscrowContract.Bin):], ctorArgs)
 
-	fmt.Println("module address: ", ModuleAddress)
-
 	account := k.accountKeeper.NewAccountWithAddress(ctx, authtypes.NewModuleAddress(types.ModuleName))
 	k.accountKeeper.SetAccount(ctx, account)
 
@@ -146,8 +145,9 @@ func (k Keeper) BalanceOf(
 	ctx sdk.Context,
 	abi abi.ABI,
 	contract, account common.Address,
+	time *big.Int,
 ) *big.Int {
-	res, err := k.CallEVM(ctx, abi, ModuleAddress, contract, false, "balanceOf", account)
+	res, err := k.CallEVM(ctx, abi, ModuleAddress, contract, false, "balanceOf", account, time)
 	if err != nil {
 		return nil
 	}
@@ -163,4 +163,30 @@ func (k Keeper) BalanceOf(
 	}
 
 	return balance
+}
+
+// BalanceOf queries an account's balance for a given ERC20 contract
+func (k Keeper) TotalSupply(
+	ctx sdk.Context,
+	abi abi.ABI,
+	contract common.Address,
+	time *big.Int,
+) *big.Int {
+	res, err := k.CallEVM(ctx, abi, ModuleAddress, contract, false, "totalSupply", time)
+
+	if err != nil {
+		return nil
+	}
+
+	unpacked, err := abi.Unpack("totalSupply", res.Ret)
+	if err != nil || len(unpacked) == 0 {
+		return nil
+	}
+
+	totalBalance, ok := unpacked[0].(*big.Int)
+	if !ok {
+		return nil
+	}
+
+	return totalBalance
 }
