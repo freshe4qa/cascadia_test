@@ -45,7 +45,7 @@ func (keeper Keeper) Tally(ctx sdk.Context, proposal types.Proposal) (passes boo
 			results[option.Option] = results[option.Option].Add(voterBalance)
 		}
 
-		totalVotingPower.Add(voterBalance)
+		totalVotingPower = totalVotingPower.Add(voterBalance)
 
 		keeper.deleteVote(ctx, vote.ProposalId, voter)
 		return false

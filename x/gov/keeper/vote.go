@@ -33,7 +33,9 @@ func (keeper Keeper) AddVote(ctx sdk.Context, proposalID uint64, voterAddr sdk.A
 	}
 	voterEvmAddr := common.BytesToAddress(voterAddr.Bytes())
 
-	if keeper.rk.BalanceOf(ctx, contracts.VotingEscrowContract.ABI, common.HexToAddress(contract.Contract), voterEvmAddr, big.NewInt(proposal.SubmitTime.Unix())).Int64() == 0 {
+	voterBalance := keeper.rk.BalanceOf(ctx, contracts.VotingEscrowContract.ABI, common.HexToAddress(contract.Contract), voterEvmAddr, big.NewInt(proposal.SubmitTime.Unix())).Int64()
+
+	if voterBalance == 0 {
 		return sdkerrors.Wrapf(types.ErrInvalidVote, "invalid vote")
 	}
 
