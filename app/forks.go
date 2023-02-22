@@ -6,10 +6,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	v2 "github.com/cascadiafoundation/cascadia/app/upgrades/v2"
-	v4 "github.com/cascadiafoundation/cascadia/app/upgrades/v4"
-	v7 "github.com/cascadiafoundation/cascadia/app/upgrades/v7"
-	v82 "github.com/cascadiafoundation/cascadia/app/upgrades/v8_2"
 	"github.com/cascadiafoundation/cascadia/types"
 )
 
@@ -29,25 +25,6 @@ func (app *Evmos) ScheduleForkUpgrade(ctx sdk.Context) {
 
 	upgradePlan := upgradetypes.Plan{
 		Height: ctx.BlockHeight(),
-	}
-
-	// handle mainnet forks with their corresponding upgrade name and info
-	switch ctx.BlockHeight() {
-	case v2.MainnetUpgradeHeight:
-		upgradePlan.Name = v2.UpgradeName
-		upgradePlan.Info = v2.UpgradeInfo
-	case v4.MainnetUpgradeHeight:
-		upgradePlan.Name = v4.UpgradeName
-		upgradePlan.Info = v4.UpgradeInfo
-	case v7.MainnetUpgradeHeight:
-		upgradePlan.Name = v7.UpgradeName
-		upgradePlan.Info = v7.UpgradeInfo
-	case v82.MainnetUpgradeHeight:
-		upgradePlan.Name = v82.UpgradeName
-		upgradePlan.Info = v82.UpgradeInfo
-	default:
-		// No-op
-		return
 	}
 
 	// schedule the upgrade plan to the current block hight, effectively performing
