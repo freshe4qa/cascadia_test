@@ -1,5 +1,5 @@
 syntax = "proto3";
-package evmos.v9.reward;
+package cascadia.reward.v1;
 
 import "gogoproto/gogo.proto";
 

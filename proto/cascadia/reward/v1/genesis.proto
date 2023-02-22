@@ -1,9 +1,9 @@
 syntax = "proto3";
-package evmos.v9.reward;
+package cascadia.reward.v1;
 
 import "gogoproto/gogo.proto";
-import "reward/params.proto";
-import "reward/reward.proto";
+import "cascadia/reward/v1/params.proto";
+import "cascadia/reward/v1/reward.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
 option go_package = "github.com/cascadiafoundation/cascadia/x/reward/types";

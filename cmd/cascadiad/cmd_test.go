@@ -10,16 +10,16 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/cascadiafoundation/cascadia/app"
-	evmosd "github.com/cascadiafoundation/cascadia/cmd/cascadiad"
+	cascadiad "github.com/cascadiafoundation/cascadia/cmd/cascadiad"
 )
 
 func TestInitCmd(t *testing.T) {
-	rootCmd, _ := evmosd.NewRootCmd()
+	rootCmd, _ := cascadiad.NewRootCmd()
 	rootCmd.SetArgs([]string{
-		"init",       // Test the init cmd
-		"evmos-test", // Moniker
+		"init",          // Test the init cmd
+		"cascadia-test", // Moniker
 		fmt.Sprintf("--%s=%s", cli.FlagOverwrite, "true"), // Overwrite genesis.json, in case it already exists
-		fmt.Sprintf("--%s=%s", flags.FlagChainID, "evmos_9000-1"),
+		fmt.Sprintf("--%s=%s", flags.FlagChainID, "cascadia_9000-1"),
 	})
 
 	err := svrcmd.Execute(rootCmd, app.DefaultNodeHome)
@@ -27,7 +27,7 @@ func TestInitCmd(t *testing.T) {
 }
 
 func TestAddKeyLedgerCmd(t *testing.T) {
-	rootCmd, _ := evmosd.NewRootCmd()
+	rootCmd, _ := cascadiad.NewRootCmd()
 	rootCmd.SetArgs([]string{
 		"keys",
 		"add",

@@ -76,7 +76,7 @@ func (suite *KeeperTestSuite) SetupApp() {
 	suite.address = common.BytesToAddress(priv.PubKey().Address().Bytes())
 	suite.signer = tests.NewSigner(priv)
 
-	suite.denom = claimtypes.DefaultClaimsDenom
+	suite.denom = "uCC"
 
 	// consensus key
 	privCons, err := ethsecp256k1.GenerateKey()
@@ -84,7 +84,7 @@ func (suite *KeeperTestSuite) SetupApp() {
 	suite.consAddress = sdk.ConsAddress(privCons.PubKey().Address())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9001-1",
+		ChainID:         "cascadia_9001-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: suite.consAddress.Bytes(),
 

@@ -19,11 +19,11 @@ import (
 
 	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
 
-	evmosapp "github.com/cascadiafoundation/cascadia/app"
+	cascadiaapp "github.com/cascadiafoundation/cascadia/app"
 	ethermint "github.com/evmos/ethermint/types"
 )
 
-var DefaultTestingAppInit func() (ibcgotesting.TestingApp, map[string]json.RawMessage) = evmosapp.SetupTestingApp
+var DefaultTestingAppInit func() (ibcgotesting.TestingApp, map[string]json.RawMessage) = cascadiaapp.SetupTestingApp
 
 // SetupWithGenesisValSet initializes a new SimApp with a validator set and genesis accounts
 // that also act as delegators. For simplicity, each validator is bonded with a delegation
@@ -90,7 +90,7 @@ func SetupWithGenesisValSet(t *testing.T, valSet *tmtypes.ValidatorSet, genAccs 
 		abci.RequestInitChain{
 			ChainId:         chainID,
 			Validators:      []abci.ValidatorUpdate{},
-			ConsensusParams: evmosapp.DefaultConsensusParams,
+			ConsensusParams: cascadiaapp.DefaultConsensusParams,
 			AppStateBytes:   stateBytes,
 		},
 	)

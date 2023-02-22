@@ -44,7 +44,7 @@ import (
 
 	"github.com/cascadiafoundation/cascadia/app"
 	cmdcfg "github.com/cascadiafoundation/cascadia/cmd/config"
-	evmoskr "github.com/cascadiafoundation/cascadia/crypto/keyring"
+	cascadiakr "github.com/cascadiafoundation/cascadia/crypto/keyring"
 )
 
 const (
@@ -96,7 +96,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithBroadcastMode(flags.BroadcastBlock).
 		WithHomeDir(app.DefaultNodeHome).
-		WithKeyringOptions(evmoskr.Option()).
+		WithKeyringOptions(cascadiakr.Option()).
 		WithViper(EnvPrefix)
 
 	rootCmd := &cobra.Command{
@@ -286,7 +286,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		panic(err)
 	}
 
-	evmosApp := app.NewCascadia(
+	cascadiaApp := app.NewCascadia(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(sdkserver.FlagInvCheckPeriod)),
@@ -307,7 +307,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		baseapp.SetIAVLDisableFastNode(cast.ToBool(appOpts.Get(sdkserver.FlagIAVLFastNode))),
 	)
 
-	return evmosApp
+	return cascadiaApp
 }
 
 // appExport creates a new simapp (optionally at a given height)
@@ -316,21 +316,21 @@ func (a appCreator) appExport(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, height int64, forZeroHeight bool, jailAllowedAddrs []string,
 	appOpts servertypes.AppOptions,
 ) (servertypes.ExportedApp, error) {
-	var evmosApp *app.Cascadia
+	var cascadiaApp *app.Cascadia
 	homePath, ok := appOpts.Get(flags.FlagHome).(string)
 	if !ok || homePath == "" {
 		return servertypes.ExportedApp{}, errors.New("application home not set")
 	}
 
 	if height != -1 {
-		evmosApp = app.NewCascadia(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		cascadiaApp = app.NewCascadia(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 
-		if err := evmosApp.LoadHeight(height); err != nil {
+		if err := cascadiaApp.LoadHeight(height); err != nil {
 			return servertypes.ExportedApp{}, err
 		}
 	} else {
-		evmosApp = app.NewCascadia(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		cascadiaApp = app.NewCascadia(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 	}
 
-	return evmosApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
+	return cascadiaApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
 }

@@ -21,7 +21,7 @@ import (
 	ethermint "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	evmoskr "github.com/cascadiafoundation/cascadia/crypto/keyring"
+	cascadiakr "github.com/cascadiafoundation/cascadia/crypto/keyring"
 )
 
 const (
@@ -60,7 +60,7 @@ contain valid denominations. Accounts may optionally be supplied with vesting pa
 						keyringBackend,
 						clientCtx.HomeDir,
 						inBuf,
-						evmoskr.Option(),
+						cascadiakr.Option(),
 					)
 					if err != nil {
 						return err

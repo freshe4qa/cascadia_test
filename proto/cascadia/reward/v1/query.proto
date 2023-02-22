@@ -1,11 +1,11 @@
 syntax = "proto3";
-package evmos.v9.reward;
+package cascadia.reward.v1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
-import "reward/params.proto";
-import "reward/reward.proto";
+import "cascadia/reward/v1/params.proto";
+import "cascadia/reward/v1/reward.proto";
 // this line is used by starport scaffolding # 1
 
 option go_package = "github.com/cascadiafoundation/cascadia/x/reward/types";
@@ -14,16 +14,16 @@ option go_package = "github.com/cascadiafoundation/cascadia/x/reward/types";
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/evmos/v9/reward/params";
+    option (google.api.http).get = "/cascadia/reward/v1/params";
   }
   // Queries a Reward by index.
 	rpc Reward(QueryGetRewardRequest) returns (QueryGetRewardResponse) {
-		option (google.api.http).get = "/evmos/v9/reward/reward/{index}";
+		option (google.api.http).get = "/cascadia/reward/v1/reward/{index}";
 	}
 
 	// Queries a list of Reward items.
 	rpc RewardAll(QueryAllRewardRequest) returns (QueryAllRewardResponse) {
-		option (google.api.http).get = "/evmos/v9/reward/reward";
+		option (google.api.http).get = "/cascadia/reward/v1/reward";
 	}
 
 // this line is used by starport scaffolding # 2
