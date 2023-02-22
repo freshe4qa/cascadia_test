@@ -10,7 +10,6 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"github.com/cascadiafoundation/cascadia/app"
-	claimstypes "github.com/cascadiafoundation/cascadia/x/claims/types"
 	client "github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -33,7 +32,7 @@ type AnteTestSuite struct {
 	suite.Suite
 
 	ctx   sdk.Context
-	app   *app.Evmos
+	app   *app.Cascadia
 	denom string
 }
 

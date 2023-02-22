@@ -3,7 +3,6 @@ package keeper_test
 import (
 	"fmt"
 
-	incentivestypes "github.com/cascadiafoundation/cascadia/x/incentives/types"
 	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
@@ -61,20 +60,12 @@ func (suite *KeeperTestSuite) TestMintAndAllocateInflation() {
 				denomMint,
 			)
 
-			incentives := suite.app.AccountKeeper.GetModuleAddress(incentivestypes.ModuleName)
-			balanceUsageIncentives := suite.app.BankKeeper.GetBalance(
-				suite.ctx,
-				incentives,
-				denomMint,
-			)
-
 			balanceCommunityPool := suite.app.DistrKeeper.GetFeePoolCommunityCoins(suite.ctx)
 
 			if tc.expPass {
 				suite.Require().NoError(err, tc.name)
 				suite.Require().True(balanceModule.IsZero())
 				suite.Require().Equal(tc.expStakingRewardAmt, balanceStakingRewards)
-				suite.Require().Equal(tc.expUsageIncentivesAmt, balanceUsageIncentives)
 				suite.Require().Equal(tc.expCommunityPoolAmt, balanceCommunityPool)
 			} else {
 				suite.Require().Error(err)

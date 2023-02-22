@@ -16,7 +16,7 @@ then
 fi
 
 # ensure that you authenticate with the BSR by generating an API token
-# also make sure that you are added to the Evmos organization on buf
+# also make sure that you are added to the Cascadia organization on buf
 # run `buf registry login` and input your details
 
 # below are the module addresses (directories containing `buf.yaml` files)

@@ -13,7 +13,6 @@ import (
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	"github.com/cascadiafoundation/cascadia/app"
-	claimtypes "github.com/cascadiafoundation/cascadia/x/claims/types"
 	"github.com/cascadiafoundation/cascadia/x/revenue/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
@@ -36,7 +35,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app            *app.Evmos
+	app            *app.Cascadia
 	queryClient    types.QueryClient
 	queryClientEvm evm.QueryClient
 	address        common.Address
