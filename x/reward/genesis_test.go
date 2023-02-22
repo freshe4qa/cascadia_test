@@ -3,9 +3,9 @@ package reward_test
 import (
 	"testing"
 
-	keepertest "github.com/evmos/evmos/v9/testutil/keeper"
-	"github.com/evmos/evmos/v9/x/reward"
-	"github.com/evmos/evmos/v9/x/reward/types"
+	keepertest "github.com/cascadiafoundation/cascadia/testutil/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/stretchr/testify/require"
 )
 

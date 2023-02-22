@@ -18,6 +18,10 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
+	"github.com/cascadiafoundation/cascadia/x/gov"
+	govkeeper "github.com/cascadiafoundation/cascadia/x/gov/keeper"
+	"github.com/cascadiafoundation/cascadia/x/params"
+	paramskeeper "github.com/cascadiafoundation/cascadia/x/params/keeper"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/grpc/tmservice"
@@ -61,12 +65,8 @@ import (
 	feegrantmodule "github.com/cosmos/cosmos-sdk/x/feegrant/module"
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
-	"github.com/cosmos/cosmos-sdk/x/gov"
-	govkeeper "github.com/cosmos/cosmos-sdk/x/gov/keeper"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/cosmos/cosmos-sdk/x/params"
 	paramsclient "github.com/cosmos/cosmos-sdk/x/params/client"
-	paramskeeper "github.com/cosmos/cosmos-sdk/x/params/keeper"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	paramproposal "github.com/cosmos/cosmos-sdk/x/params/types/proposal"
 	"github.com/cosmos/cosmos-sdk/x/slashing"
@@ -105,48 +105,48 @@ import (
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	// unnamed import of statik for swagger UI support
-	_ "github.com/evmos/evmos/v9/client/docs/statik"
+	_ "github.com/cascadiafoundation/cascadia/client/docs/statik"
 
-	"github.com/evmos/evmos/v9/app/ante"
-	v2 "github.com/evmos/evmos/v9/app/upgrades/v2"
-	v4 "github.com/evmos/evmos/v9/app/upgrades/v4"
-	v5 "github.com/evmos/evmos/v9/app/upgrades/v5"
-	v6 "github.com/evmos/evmos/v9/app/upgrades/v6"
-	v7 "github.com/evmos/evmos/v9/app/upgrades/v7"
-	v8 "github.com/evmos/evmos/v9/app/upgrades/v8"
-	v81 "github.com/evmos/evmos/v9/app/upgrades/v8_1"
-	v82 "github.com/evmos/evmos/v9/app/upgrades/v8_2"
-	v9 "github.com/evmos/evmos/v9/app/upgrades/v9"
-	"github.com/evmos/evmos/v9/x/claims"
-	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v9/x/claims/types"
-	"github.com/evmos/evmos/v9/x/epochs"
-	epochskeeper "github.com/evmos/evmos/v9/x/epochs/keeper"
-	epochstypes "github.com/evmos/evmos/v9/x/epochs/types"
-	"github.com/evmos/evmos/v9/x/erc20"
-	erc20client "github.com/evmos/evmos/v9/x/erc20/client"
-	erc20keeper "github.com/evmos/evmos/v9/x/erc20/keeper"
-	erc20types "github.com/evmos/evmos/v9/x/erc20/types"
-	"github.com/evmos/evmos/v9/x/incentives"
-	incentivesclient "github.com/evmos/evmos/v9/x/incentives/client"
-	incentiveskeeper "github.com/evmos/evmos/v9/x/incentives/keeper"
-	incentivestypes "github.com/evmos/evmos/v9/x/incentives/types"
-	"github.com/evmos/evmos/v9/x/inflation"
-	inflationkeeper "github.com/evmos/evmos/v9/x/inflation/keeper"
-	inflationtypes "github.com/evmos/evmos/v9/x/inflation/types"
-	"github.com/evmos/evmos/v9/x/recovery"
-	recoverykeeper "github.com/evmos/evmos/v9/x/recovery/keeper"
-	recoverytypes "github.com/evmos/evmos/v9/x/recovery/types"
-	"github.com/evmos/evmos/v9/x/revenue"
-	revenuekeeper "github.com/evmos/evmos/v9/x/revenue/keeper"
-	revenuetypes "github.com/evmos/evmos/v9/x/revenue/types"
-	"github.com/evmos/evmos/v9/x/vesting"
-	vestingkeeper "github.com/evmos/evmos/v9/x/vesting/keeper"
-	vestingtypes "github.com/evmos/evmos/v9/x/vesting/types"
+	"github.com/cascadiafoundation/cascadia/app/ante"
+	v2 "github.com/cascadiafoundation/cascadia/app/upgrades/v2"
+	v4 "github.com/cascadiafoundation/cascadia/app/upgrades/v4"
+	v5 "github.com/cascadiafoundation/cascadia/app/upgrades/v5"
+	v6 "github.com/cascadiafoundation/cascadia/app/upgrades/v6"
+	v7 "github.com/cascadiafoundation/cascadia/app/upgrades/v7"
+	v8 "github.com/cascadiafoundation/cascadia/app/upgrades/v8"
+	v81 "github.com/cascadiafoundation/cascadia/app/upgrades/v8_1"
+	v82 "github.com/cascadiafoundation/cascadia/app/upgrades/v8_2"
+	v9 "github.com/cascadiafoundation/cascadia/app/upgrades/v9"
+	"github.com/cascadiafoundation/cascadia/x/claims"
+	claimskeeper "github.com/cascadiafoundation/cascadia/x/claims/keeper"
+	claimstypes "github.com/cascadiafoundation/cascadia/x/claims/types"
+	"github.com/cascadiafoundation/cascadia/x/epochs"
+	epochskeeper "github.com/cascadiafoundation/cascadia/x/epochs/keeper"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/erc20"
+	erc20client "github.com/cascadiafoundation/cascadia/x/erc20/client"
+	erc20keeper "github.com/cascadiafoundation/cascadia/x/erc20/keeper"
+	erc20types "github.com/cascadiafoundation/cascadia/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/x/incentives"
+	incentivesclient "github.com/cascadiafoundation/cascadia/x/incentives/client"
+	incentiveskeeper "github.com/cascadiafoundation/cascadia/x/incentives/keeper"
+	incentivestypes "github.com/cascadiafoundation/cascadia/x/incentives/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation"
+	inflationkeeper "github.com/cascadiafoundation/cascadia/x/inflation/keeper"
+	inflationtypes "github.com/cascadiafoundation/cascadia/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/x/recovery"
+	recoverykeeper "github.com/cascadiafoundation/cascadia/x/recovery/keeper"
+	recoverytypes "github.com/cascadiafoundation/cascadia/x/recovery/types"
+	"github.com/cascadiafoundation/cascadia/x/revenue"
+	revenuekeeper "github.com/cascadiafoundation/cascadia/x/revenue/keeper"
+	revenuetypes "github.com/cascadiafoundation/cascadia/x/revenue/types"
+	"github.com/cascadiafoundation/cascadia/x/vesting"
+	vestingkeeper "github.com/cascadiafoundation/cascadia/x/vesting/keeper"
+	vestingtypes "github.com/cascadiafoundation/cascadia/x/vesting/types"
 
-	rewardmodule "github.com/evmos/evmos/v9/x/reward"
-	rewardmodulekeeper "github.com/evmos/evmos/v9/x/reward/keeper"
-	rewardmoduletypes "github.com/evmos/evmos/v9/x/reward/types"
+	rewardmodule "github.com/cascadiafoundation/cascadia/x/reward"
+	rewardmodulekeeper "github.com/cascadiafoundation/cascadia/x/reward/keeper"
+	rewardmoduletypes "github.com/cascadiafoundation/cascadia/x/reward/types"
 )
 
 func init() {
@@ -436,11 +436,6 @@ func NewEvmos(
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
 		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper))
 
-	govKeeper := govkeeper.NewKeeper(
-		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
-		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter,
-	)
-
 	app.rewardKeeper = *rewardmodulekeeper.NewKeeper(
 		appCodec,
 		keys[rewardmoduletypes.StoreKey],
@@ -449,8 +444,15 @@ func NewEvmos(
 
 		app.BankKeeper,
 		app.EvmKeeper,
+		app.AccountKeeper,
 		authtypes.FeeCollectorName,
 	)
+
+	govKeeper := govkeeper.NewKeeper(
+		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
+		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter, &app.rewardKeeper,
+	)
+
 	// Evmos Keeper
 	app.InflationKeeper = inflationkeeper.NewKeeper(
 		keys[inflationtypes.StoreKey], appCodec, app.GetSubspace(inflationtypes.ModuleName),

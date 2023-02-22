@@ -1,10 +1,10 @@
 package v6
 
 import (
+	paramskeeper "github.com/cascadiafoundation/cascadia/x/params/keeper"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	paramskeeper "github.com/cosmos/cosmos-sdk/x/params/keeper"
 	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
@@ -14,9 +14,9 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	v5 "github.com/evmos/evmos/v9/app/upgrades/v5"
-	"github.com/evmos/evmos/v9/types"
-	claimskeeper "github.com/evmos/evmos/v9/x/claims/keeper"
+	v5 "github.com/cascadiafoundation/cascadia/app/upgrades/v5"
+	"github.com/cascadiafoundation/cascadia/types"
+	claimskeeper "github.com/cascadiafoundation/cascadia/x/claims/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v6

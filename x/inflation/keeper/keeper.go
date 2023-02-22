@@ -7,7 +7,7 @@ import (
 
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/evmos/evmos/v9/x/inflation/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 )
 
 // Keeper of the inflation store
@@ -20,7 +20,7 @@ type Keeper struct {
 	bankKeeper       types.BankKeeper
 	distrKeeper      types.DistrKeeper
 	stakingKeeper    types.StakingKeeper
-	rewardKeeper    types.RewardKeeper
+	rewardKeeper     types.RewardKeeper
 	feeCollectorName string
 }
 
@@ -54,7 +54,7 @@ func NewKeeper(
 		bankKeeper:       bk,
 		distrKeeper:      dk,
 		stakingKeeper:    sk,
-		rewardKeeper:    fk,
+		rewardKeeper:     fk,
 		feeCollectorName: feeCollectorName,
 	}
 }

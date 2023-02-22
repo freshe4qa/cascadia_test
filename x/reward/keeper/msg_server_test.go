@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
+	keepertest "github.com/cascadiafoundation/cascadia/testutil/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	keepertest "github.com/evmos/evmos/v9/testutil/keeper"
-	"github.com/evmos/evmos/v9/x/reward/keeper"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {

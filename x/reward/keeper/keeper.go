@@ -3,12 +3,14 @@ package keeper
 import (
 	"fmt"
 
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/tendermint/tendermint/libs/log"
 
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 type (
@@ -20,6 +22,7 @@ type (
 
 		bankKeeper       types.BankKeeper
 		evmKeeper        types.EVMKeeper
+		accountKeeper    types.AccountKeeper
 		feeCollectorName string
 	}
 )
@@ -32,6 +35,7 @@ func NewKeeper(
 
 	bankKeeper types.BankKeeper,
 	evmKeeper types.EVMKeeper,
+	accountKeeper types.AccountKeeper,
 	feeCollector string,
 ) *Keeper {
 	// set KeyTable if it has not already been set
@@ -47,10 +51,17 @@ func NewKeeper(
 		paramstore:       ps,
 		bankKeeper:       bankKeeper,
 		evmKeeper:        evmKeeper,
+		accountKeeper:    accountKeeper,
 		feeCollectorName: feeCollector,
 	}
 }
 
 func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 	return ctx.Logger().With("module", fmt.Sprintf("x/%s", types.ModuleName))
+}
+
+var ModuleAddress common.Address
+
+func init() {
+	ModuleAddress = common.BytesToAddress(authtypes.NewModuleAddress(types.ModuleName).Bytes())
 }

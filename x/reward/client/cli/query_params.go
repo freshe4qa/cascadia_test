@@ -3,9 +3,9 @@ package cli
 import (
 	"context"
 
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/evmos/evmos/v9/x/reward/types"
 	"github.com/spf13/cobra"
 )
 

@@ -15,7 +15,7 @@ command -v jq > /dev/null 2>&1 || { echo >&2 "jq not installed. More info: https
 set -e
 
 # Clear everything of previous installation
-rm -rf ~/.cascadiad*
+# rm -rf ~/.cascadiad*
 
 # Reinstall daemon
 make install
@@ -25,7 +25,7 @@ cascadiad config keyring-backend $KEYRING
 cascadiad config chain-id $CHAINID
 
 # if $KEY exists it should be deleted
-cascadiad keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
+# cascadiad keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
 
 # Set moniker and chain-id for Cascadia (Moniker can be anything, chain-id must be an integer)
 cascadiad init $MONIKER --chain-id $CHAINID
@@ -46,7 +46,7 @@ current_date=$(date -u +"%Y-%m-%dT%TZ")
 cat $HOME/.cascadiad/config/genesis.json | jq -r --arg current_date "$current_date" '.app_state["claims"]["params"]["airdrop_start_time"]=$current_date' > $HOME/.cascadiad/config/tmp_genesis.json && mv $HOME/.cascadiad/config/tmp_genesis.json $HOME/.cascadiad/config/genesis.json
 
 # Set claims records for validator account
-amount_to_claim=10000
+amount_to_claim=100000000010000
 cat $HOME/.cascadiad/config/genesis.json | jq -r --arg node_address "$node_address" --arg amount_to_claim "$amount_to_claim" '.app_state["claims"]["claims_records"]=[{"initial_claimable_amount":$amount_to_claim, "actions_completed":[false, false, false, false],"address":$node_address}]' > $HOME/.cascadiad/config/tmp_genesis.json && mv $HOME/.cascadiad/config/tmp_genesis.json $HOME/.cascadiad/config/genesis.json
 
 # Set claims decay
@@ -95,7 +95,7 @@ cascadiad add-genesis-account $KEY 100000000000000000000000000uCC --keyring-back
 validators_supply=$(cat $HOME/.cascadiad/config/genesis.json | jq -r '.app_state["bank"]["supply"][0]["amount"]')
 # Bc is required to add this big numbers
 # total_supply=$(bc <<< "$amount_to_claim+$validators_supply")
-total_supply=100000000000000000000010000
+total_supply=100000000000100000000010000
 cat $HOME/.cascadiad/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.cascadiad/config/tmp_genesis.json && mv $HOME/.cascadiad/config/tmp_genesis.json $HOME/.cascadiad/config/genesis.json
 
 # Sign genesis transaction
@@ -118,4 +118,4 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-cascadiad start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001uCC --json-rpc.api eth,txpool,personal,net,debug,web3
+# cascadiad start --pruning=nothing $TRACE --log_level panic --minimum-gas-prices=0.0001uCC --json-rpc.api eth,txpool,personal,net,debug,web3

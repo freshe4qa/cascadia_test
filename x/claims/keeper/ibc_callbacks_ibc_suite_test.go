@@ -12,11 +12,11 @@ import (
 	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
 	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
 
+	"github.com/cascadiafoundation/cascadia/app"
+	ibctesting "github.com/cascadiafoundation/cascadia/ibc/testing"
+	"github.com/cascadiafoundation/cascadia/testutil"
+	"github.com/cascadiafoundation/cascadia/x/claims/types"
 	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v9/app"
-	ibctesting "github.com/evmos/evmos/v9/ibc/testing"
-	"github.com/evmos/evmos/v9/testutil"
-	"github.com/evmos/evmos/v9/x/claims/types"
 )
 
 type IBCTestingSuite struct {

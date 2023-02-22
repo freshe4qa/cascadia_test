@@ -12,9 +12,9 @@ import (
 
 	"github.com/evmos/ethermint/encoding"
 
-	"github.com/evmos/evmos/v9/app"
-	v2 "github.com/evmos/evmos/v9/x/erc20/migrations/v2"
-	erc20types "github.com/evmos/evmos/v9/x/erc20/types"
+	"github.com/cascadiafoundation/cascadia/app"
+	v2 "github.com/cascadiafoundation/cascadia/x/erc20/migrations/v2"
+	erc20types "github.com/cascadiafoundation/cascadia/x/erc20/types"
 )
 
 func TestUpdateParams(t *testing.T) {

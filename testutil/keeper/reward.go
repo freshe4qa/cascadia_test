@@ -3,11 +3,11 @@ package keeper
 import (
 	"testing"
 
+	"github.com/cascadiafoundation/cascadia/x/reward/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/store"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v9/x/reward/keeper"
-	"github.com/evmos/evmos/v9/x/reward/types"
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/libs/log"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"

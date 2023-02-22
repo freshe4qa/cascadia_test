@@ -3,11 +3,11 @@ package v9
 import (
 	"fmt"
 
+	"github.com/cascadiafoundation/cascadia/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	distrKeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
-	"github.com/evmos/evmos/v9/types"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v9

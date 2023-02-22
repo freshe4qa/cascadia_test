@@ -1,9 +1,9 @@
 package reward
 
 import (
+	"github.com/cascadiafoundation/cascadia/x/reward/keeper"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v9/x/reward/keeper"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

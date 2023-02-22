@@ -1,8 +1,8 @@
 package keeper
 
 import (
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v9/x/inflation/types"
 )
 
 // GetEpochIdentifier gets the epoch identifier

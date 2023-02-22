@@ -1,9 +1,9 @@
 package types // noalias
 
 import (
+	rewardtypes "github.com/cascadiafoundation/cascadia/x/reward/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
-	rewardtypes "github.com/evmos/evmos/v9/x/reward/types"
 )
 
 // AccountKeeper defines the contract required for account APIs.

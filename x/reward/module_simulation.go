@@ -3,14 +3,14 @@ package reward
 import (
 	"math/rand"
 
+	rewardsimulation "github.com/cascadiafoundation/cascadia/x/reward/simulation"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	rewardsimulation "github.com/evmos/evmos/v9/x/reward/simulation"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 // avoid unused import issue

@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/evmos/evmos/v9/x/reward/types"
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 )
 
 var (

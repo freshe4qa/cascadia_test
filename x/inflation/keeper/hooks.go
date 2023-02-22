@@ -4,10 +4,10 @@ import (
 	"fmt"
 
 	"github.com/armon/go-metrics"
+	epochstypes "github.com/cascadiafoundation/cascadia/x/epochs/types"
+	"github.com/cascadiafoundation/cascadia/x/inflation/types"
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	epochstypes "github.com/evmos/evmos/v9/x/epochs/types"
-	"github.com/evmos/evmos/v9/x/inflation/types"
 )
 
 // BeforeEpochStart: noop, We don't need to do anything here

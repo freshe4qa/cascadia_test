@@ -1,8 +1,8 @@
 package keeper
 
 import (
+	"github.com/cascadiafoundation/cascadia/x/reward/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/evmos/v9/x/reward/types"
 )
 
 // GetParams get all parameters as types.Params
